@@ -8,17 +8,37 @@
 
 <body>
 
-<header>
-<h1>Smart Waste Management System</h1>
-<p>Team AutoGals</p>
-</header>
-
 <nav>
+<div id="sideMenu" class="side-menu">
+
+<a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">✖</a>
+
 <a href="#dashboard">Dashboard</a>
+<a href="#filledBins">Filled Bins</a>
 <a href="#bins">City Bins</a>
 <a href="#routes">Collection Routes</a>
 <a href="#citizen">Citizen Report</a>
+
+</div>
+
+<span class="menu-button" onclick="openMenu()">☰</span>
+<header>
+<h1>Smart Waste Management System</h1>
+
+</header>
+
 </nav>
+<section id="filledBins">
+
+<h2>⚠ Filled Bins (Above 80%)</h2>
+
+<ul id="filledBinsList">
+
+<li>No bins above 80%</li>
+
+</ul>
+
+</section>
 
 <section id="dashboard">
 
@@ -28,7 +48,7 @@
 
 <div class="dashboard-card">
 <h3>Total Smart Bins</h3>
-<p id="totalBins">10</p>
+<p id="totalBins">20</p>
 </div>
 
 <div class="dashboard-card">
@@ -52,8 +72,44 @@
 <div class="bins-grid">
 
 <div class="bin-card">
+
 <h3>Market</h3>
-<div class="bin" id="bin1">
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin1_bio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin1_nonbio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+</div>
+
+<div class="bin-card">
+<h3>Bus Stand</h3>
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin2_bio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin2_nonbio">
 <div class="fill"></div>
 <span class="percent">0%</span>
 </div>
@@ -62,57 +118,107 @@
 </div>
 
 <div class="bin-card">
-<h3>Bus Stand</h3>
-<div class="bin" id="bin2">
-<div class="fill"></div>
-<span class="percent">0%</span>
-</div>
-<p class="prediction">Overflow in: 18 hrs</p>
-<button>Empty Bin</button>
-</div>
-
-<div class="bin-card">
 <h3>Railway Station</h3>
-<div class="bin" id="bin3">
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin3_bio">
 <div class="fill"></div>
 <span class="percent">0%</span>
 </div>
-<p class="prediction">Overflow in: 12 hrs</p>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin3_nonbio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
 <button>Empty Bin</button>
 </div>
 
 <div class="bin-card">
 <h3>Hospital</h3>
-<div class="bin" id="bin4">
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin4_bio">
 <div class="fill"></div>
 <span class="percent">0%</span>
 </div>
-<p class="prediction">Overflow in: 20 hrs</p>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin4_nonbio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
 <button>Empty Bin</button>
 </div>
 
 <div class="bin-card">
 <h3>School</h3>
-<div class="bin" id="bin5">
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin5_bio">
 <div class="fill"></div>
 <span class="percent">0%</span>
 </div>
-<p class="prediction">Overflow in: 30 hrs</p>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin5_nonbio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
 <button>Empty Bin</button>
 </div>
 <div class="bin-card">
-<h3>City Park</h3>
-<div class="bin" id="bin6">
+<h3>City Market</h3>
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin6_bio">
 <div class="fill"></div>
 <span class="percent">0%</span>
 </div>
-<p class="prediction">Overflow in: 16 hrs</p>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin6_nonbio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
 <button>Empty Bin</button>
 </div>
 
 <div class="bin-card">
 <h3>Shopping Mall</h3>
-<div class="bin" id="bin7">
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin7_bio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin7_nonbio">
 <div class="fill"></div>
 <span class="percent">0%</span>
 </div>
@@ -122,17 +228,41 @@
 
 <div class="bin-card">
 <h3>Residential Area</h3>
-<div class="bin" id="bin8">
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin8_bio">
 <div class="fill"></div>
 <span class="percent">0%</span>
 </div>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin8_nonbio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+
 <p class="prediction">Overflow in: 2 days</p>
 <button>Empty Bin</button>
 </div>
 
 <div class="bin-card">
 <h3>Beach</h3>
-<div class="bin" id="bin9">
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin9_bio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin9_nonbio">
 <div class="fill"></div>
 <span class="percent">0%</span>
 </div>
@@ -142,7 +272,19 @@
 
 <div class="bin-card">
 <h3>City Stadium</h3>
-<div class="bin" id="bin10">
+
+<p><b>Biodegradable</b></p>
+<div class="bin" id="bin10_bio">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
+
+<br><br>
+
+<p><b>Non-Biodegradable</b></p>
+<div class="bin" id="bin10_nonbio">
 <div class="fill"></div>
 <span class="percent">0%</span>
 </div>
@@ -163,20 +305,21 @@
 
 <div class="map">
 
-<div class="location">🏬 Market</div>
-<div class="location">🚌 Bus Stand</div>
-<div class="location">🚉 Station</div>
-<div class="location">🏥 Hospital</div>
-<div class="location">🏫 School</div>
-<div class="location">🌳 Park</div>
-<div class="location">🏬 Mall</div>
-<div class="location">🏠 Residential</div>
-<div class="location">🏖 Beach</div>
-<div class="location">🏟 Stadium</div>
+<div class="location market">🏬 Market</div>
+<div class="location bus">🚌 Bus Stand</div>
+<div class="location station">🚉 Station</div>
+<div class="location hospital">🏥 Hospital</div>
 
-<div class="truck">🚛</div>
 
-<div class="route-path">
+<div class="location mall">🏬 Mall</div>
+<div class="location residential">🏠 Residential</div>
+<div class="location beach">🏖 Beach</div>
+<div class="location stadium">🏟 Stadium</div>
+
+<div id="truck" class="truck">🚛</div>
+
+<canvas id="routeCanvas"></canvas>
+
 </div>
 
 </div>
