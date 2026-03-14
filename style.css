@@ -35,23 +35,23 @@ text-decoration:underline;
 /* SECTIONS */
 
 section{
-padding:50px;
-min-height:600px;
+padding:40px 30px;
+
 }
 
 /* DASHBOARD */
 
 .dashboard-container{
 display:flex;
-justify-content:space-around;
-gap:30px;
-margin-top:40px;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
 }
 
 .dashboard-card{
 background:white;
-padding:40px;
-width:280px;
+padding:15px;
+width:180px;
 text-align:center;
 border-radius:10px;
 box-shadow:0 4px 10px rgba(0,0,0,0.2);
@@ -399,4 +399,3 @@ border-radius:6px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
 font-weight:bold;
 }
-
