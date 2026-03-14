@@ -1,9 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Smart Waste Management</title>
+<title>Smart Waste Management Dashboard</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Smart Waste Dashboard</h1>
+
+<!-- Header -->
+<header>
+<h1>Smart Waste Management Dashboard</h1>
+<p>Team AutoGals</p>
+</header>
+
+<!-- Navigation -->
+<nav>
+<a href="#">Dashboard</a>
+<a href="#">Bins</a>
+<a href="#">Alerts</a>
+<a href="#">Routes</a>
+</nav>
+
+<!-- Dashboard Container -->
+<div class="container">
+
+<!-- Total Bins Card -->
+<div class="card">
+<h3>Total Bins</h3>
+<p class="sensor-value">6</p>
+</div>
+
+<!-- Full Bins Card -->
+<div class="card">
+<h3>Full Bins</h3>
+<p class="sensor-value">2</p>
+</div>
+
+<!-- Bin Table Card -->
+<div class="card">
+<h3>Bin Table</h3>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Location</th>
+<th>Fill</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Market</td>
+<td>90%</td>
+<td>FULL</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Park</td>
+<td>40%</td>
+<td>NORMAL</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Bus Stop</td>
+<td>80%</td>
+<td>ALERT</td>
+</tr>
+
+</table>
+</div>
+
+<!-- Alerts Section -->
+<div class="card">
+<h3>Alerts</h3>
+<div class="alert">
+⚠ Bin 1 is almost full
+</div>
+</div>
+
+<!-- AI Prediction / Route -->
+<div class="card">
+<h3>Route Suggestion</h3>
+
+<div class="ai-box">
+Truck → Market → Bus Stop → Park
+</div>
+
+<br>
+
+<button>Generate Smart Route</button>
+
+</div>
+
+</div>
+
 </body>
-</html> 
+</html>
