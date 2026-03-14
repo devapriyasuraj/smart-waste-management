@@ -1,150 +1,219 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Smart Waste Management Dashboard</title>
+<title>Smart Waste Management System</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Header -->
 <header>
-<h1>Smart Waste Management Dashboard</h1>
+<h1>Smart Waste Management System</h1>
 <p>Team AutoGals</p>
 </header>
 
-<!-- Navigation -->
 <nav>
-<a href="#">Dashboard</a>
-<a href="#">Bins</a>
-<a href="#">Alerts</a>
-<a href="#">Routes</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#bins">City Bins</a>
+<a href="#routes">Collection Routes</a>
+<a href="#citizen">Citizen Report</a>
 </nav>
 
-<!-- Dashboard Container -->
-<div class="container">
-<h2 style="text-align:center;">Smart Bins Status</h2>
+<section id="dashboard">
 
-<div class="bins">
+<h2>City Waste Dashboard</h2>
 
+<div class="dashboard-container">
+
+<div class="dashboard-card">
+<h3>Total Smart Bins</h3>
+<p id="totalBins">10</p>
+</div>
+
+<div class="dashboard-card">
+<h3>Bins Above 80%</h3>
+<p id="alertBins">0</p>
+</div>
+
+<div class="dashboard-card">
+<h3>Next Collection Zone</h3>
+<p id="priorityZone">Awaiting Data</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="bins">
+
+<h2>City Smart Bins</h2>
+
+<div class="bins-grid">
+
+<div class="bin-card">
+<h3>Market</h3>
 <div class="bin" id="bin1">
 <div class="fill"></div>
-<p>Plastic</p>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 24 hrs</p>
+<button>Empty Bin</button>
 </div>
 
+<div class="bin-card">
+<h3>Bus Stand</h3>
 <div class="bin" id="bin2">
 <div class="fill"></div>
-<p>Metal</p>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 18 hrs</p>
+<button>Empty Bin</button>
 </div>
 
+<div class="bin-card">
+<h3>Railway Station</h3>
 <div class="bin" id="bin3">
 <div class="fill"></div>
-<p>Organic</p>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 12 hrs</p>
+<button>Empty Bin</button>
 </div>
 
+<div class="bin-card">
+<h3>Hospital</h3>
 <div class="bin" id="bin4">
 <div class="fill"></div>
-<p>Paper</p>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 20 hrs</p>
+<button>Empty Bin</button>
 </div>
 
+<div class="bin-card">
+<h3>School</h3>
 <div class="bin" id="bin5">
 <div class="fill"></div>
-<p>Glass</p>
+<span class="percent">0%</span>
 </div>
-
+<p class="prediction">Overflow in: 30 hrs</p>
+<button>Empty Bin</button>
+</div>
+<div class="bin-card">
+<h3>City Park</h3>
 <div class="bin" id="bin6">
 <div class="fill"></div>
-<p>E-Waste</p>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 16 hrs</p>
+<button>Empty Bin</button>
 </div>
 
+<div class="bin-card">
+<h3>Shopping Mall</h3>
 <div class="bin" id="bin7">
 <div class="fill"></div>
-<p>Medical</p>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 10 hrs</p>
+<button>Empty Bin</button>
 </div>
 
+<div class="bin-card">
+<h3>Residential Area</h3>
 <div class="bin" id="bin8">
 <div class="fill"></div>
-<p>Hazardous</p>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 2 days</p>
+<button>Empty Bin</button>
 </div>
 
+<div class="bin-card">
+<h3>Beach</h3>
 <div class="bin" id="bin9">
 <div class="fill"></div>
-<p>General</p>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 8 hrs</p>
+<button>Empty Bin</button>
+</div>
+
+<div class="bin-card">
+<h3>City Stadium</h3>
+<div class="bin" id="bin10">
+<div class="fill"></div>
+<span class="percent">0%</span>
+</div>
+<p class="prediction">Overflow in: 36 hrs</p>
+<button>Empty Bin</button>
+</div>
+
+</div>
+</section>
+
+
+
+<section id="routes">
+
+<h2>Garbage Collection Route</h2>
+
+<div class="map-area">
+
+<div class="map">
+
+<div class="location">🏬 Market</div>
+<div class="location">🚌 Bus Stand</div>
+<div class="location">🚉 Station</div>
+<div class="location">🏥 Hospital</div>
+<div class="location">🏫 School</div>
+<div class="location">🌳 Park</div>
+<div class="location">🏬 Mall</div>
+<div class="location">🏠 Residential</div>
+<div class="location">🏖 Beach</div>
+<div class="location">🏟 Stadium</div>
+
+<div class="truck">🚛</div>
+
+<div class="route-path">
 </div>
 
 </div>
 
-<!-- Total Bins Card -->
-<div class="card">
-<h3>Total Bins</h3>
-<p class="sensor-value">6</p>
 </div>
 
-<!-- Full Bins Card -->
-<div class="card">
-<h3>Full Bins</h3>
-<p class="sensor-value">2</p>
+<button>Generate Smart Collection Route</button>
+
+</section>
+
+
+
+<section id="citizen">
+
+<h2>Citizen Waste Report</h2>
+
+<div class="report-box">
+
+<p>If you see an overflowing bin, report it to the authorities.</p>
+
+<div class="qr-area">
+<img src="qr_placeholder.png" alt="QR Code">
+<p>Scan QR code to report using your phone.</p>
 </div>
 
-<!-- Bin Table Card -->
-<div class="card">
-<h3>Bin Table</h3>
-
-<table>
-<tr>
-<th>ID</th>
-<th>Location</th>
-<th>Fill</th>
-<th>Status</th>
-</tr>
-
-<tr>
-<td>1</td>
-<td>Market</td>
-<td>90%</td>
-<td>FULL</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>Park</td>
-<td>40%</td>
-<td>NORMAL</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>Bus Stop</td>
-<td>80%</td>
-<td>ALERT</td>
-</tr>
-
-</table>
-</div>
-
-<!-- Alerts Section -->
-<div class="card">
-<h3>Alerts</h3>
-<div class="alert">
-⚠ Bin 1 is almost full
-</div>
-</div>
-
-<!-- AI Prediction / Route -->
-<div class="card">
-<h3>Route Suggestion</h3>
-
-<div class="ai-box">
-Truck → Market → Bus Stop → Park
-</div>
-
-<br>
-
-<button>Generate Smart Route</button>
-
+<div class="report-form">
+<h3>Upload Bin Image</h3>
+<input type="file">
+<textarea placeholder="Describe the issue"></textarea>
+<button>Submit Report</button>
 </div>
 
 </div>
+
+</section>
+
 <script src="script.js"></script>
+
 </body>
 </html>
