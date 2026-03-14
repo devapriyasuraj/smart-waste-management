@@ -1,101 +1,137 @@
-// Smart Waste Management System JavaScript
+// BIN DATA
 
-// Bin data
 let bins = [
-    { id: "bin1", type: "Plastic", level: 0 },
-    { id: "bin2", type: "Metal", level: 0 },
-    { id: "bin3", type: "Organic", level: 0 },
-    { id: "bin4", type: "Paper", level: 0 },
-    { id: "bin5", type: "Glass", level: 0 },
-    { id: "bin6", type: "E-Waste", level: 0 },
-    { id: "bin7", type: "Medical", level: 0 },
-    { id: "bin8", type: "Hazardous", level: 0 },
-    { id: "bin9", type: "General", level: 0 }
+{ id:"bin1", location:"Market", level:0 },
+{ id:"bin2", location:"Bus Stand", level:0 },
+{ id:"bin3", location:"Railway Station", level:0 },
+{ id:"bin4", location:"Hospital", level:0 },
+{ id:"bin5", location:"School", level:0 },
+{ id:"bin6", location:"City Park", level:0 },
+{ id:"bin7", location:"Shopping Mall", level:0 },
+{ id:"bin8", location:"Residential Area", level:0 },
+{ id:"bin9", location:"Beach", level:0 },
+{ id:"bin10", location:"City Stadium", level:0 }
 ];
 
 
-// Function to add waste to a bin
-function addWaste(binId, amount) {
 
-    let bin = bins.find(b => b.id === binId);
+// INITIALIZE BINS
 
-    if (bin) {
-        bin.level += amount;
+bins.forEach((bin,index)=>{
 
-        if (bin.level > 100) {
-            bin.level = 100;
-        }
+let binElement = document.getElementById(bin.id);
+let fill = binElement.querySelector(".fill");
+let percent = binElement.querySelector(".percent");
 
-        updateBinUI(binId, bin.level);
 
-        if (bin.level >= 80) {
-            alert(bin.type + " Bin is almost full! Please collect waste.");
-        }
-    }
+// CLICK BIN TO ADD WASTE
+
+binElement.addEventListener("click",()=>{
+
+bin.level += 10;
+
+if(bin.level > 100){
+bin.level = 100;
 }
 
-
-// Update UI
-function updateBinUI(binId, level) {
-
-    let bar = document.querySelector(`#${binId} .fill`);
-
-    if (bar) {
-        bar.style.height = level + "%";
-    }
-}
-
-
-// Random waste simulation (for demo)
-function simulateWaste() {
-
-    let randomBin = bins[Math.floor(Math.random() * bins.length)];
-
-    let amount = Math.floor(Math.random() * 20) + 5;
-
-    addWaste(randomBin.id, amount);
-
-}
-
-
-// Run simulation every 3 seconds
-setInterval(simulateWaste, 3000);
-
-
-// Reset bins
-function resetBins() {
-
-    bins.forEach(bin => {
-        bin.level = 0;
-        updateBinUI(bin.id, 0);
-    });
-
-}
-
-
-// Hover animation
-document.querySelectorAll(".bin").forEach(bin => {
-
-    bin.addEventListener("mouseenter", () => {
-        bin.style.transform = "scale(1.1)";
-    });
-
-    bin.addEventListener("mouseleave", () => {
-        bin.style.transform = "scale(1)";
-    });
+updateBin(bin,fill,percent);
+updateDashboard();
 
 });
 
 
-// Click event to manually add waste
-document.querySelectorAll(".bin").forEach(bin => {
+// EMPTY BUTTON
 
-    bin.addEventListener("click", () => {
+let button = binElement.parentElement.querySelector("button");
 
-        let binId = bin.id;
+button.addEventListener("click",()=>{
 
-        addWaste(binId, 10);
+bin.level = 0;
 
-    });
+updateBin(bin,fill,percent);
+updateDashboard();
 
 });
+
+});
+
+
+
+// UPDATE BIN VISUAL
+
+function updateBin(bin,fill,percent){
+
+fill.style.height = bin.level + "%";
+
+percent.innerText = bin.level + "%";
+
+
+// COLOR LOGIC
+
+if(bin.level <= 30){
+fill.style.background = "green";
+}
+
+else if(bin.level <= 60){
+fill.style.background = "yellow";
+}
+
+else{
+fill.style.background = "red";
+}
+
+}
+
+
+
+// DASHBOARD UPDATE
+
+function updateDashboard(){
+
+let alertBins = bins.filter(bin=>bin.level >= 80);
+
+document.getElementById("alertBins").innerText = alertBins.length;
+
+if(alertBins.length > 0){
+
+let sorted = alertBins.sort((a,b)=>b.level - a.level);
+
+document.getElementById("priorityZone").innerText = sorted[0].location;
+
+}
+
+else{
+
+document.getElementById("priorityZone").innerText = "No urgent bins";
+
+}
+
+}
+
+
+
+// ROUTE GENERATION
+
+let routeButton = document.querySelector("#routes button");
+
+routeButton.addEventListener("click", generateRoute);
+
+function generateRoute(){
+
+let routeBins = bins.filter(bin=>bin.level >= 80);
+
+routeBins.sort((a,b)=>b.level - a.level);
+
+let routeText = "Truck Route: ";
+
+routeBins.forEach(bin=>{
+routeText += " → " + bin.location;
+});
+
+if(routeBins.length == 0){
+routeText = "No bins above 80%";
+}
+
+alert(routeText);
+
+}
