@@ -1,7 +1,7 @@
 body{
 font-family: Arial, sans-serif;
 margin:0;
-background:#f0f2f5;
+background:#f4f5f6;
 }
 
 /* HEADER */
@@ -72,71 +72,92 @@ gap:30px;
 margin-top:40px;
 }
 
+/* BIN CARD */
+
 .bin-card{
 background:white;
-padding:20px;
+padding:15px;
 border-radius:10px;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
 text-align:center;
-box-shadow:0 3px 8px rgba(0,0,0,0.2);
+transition:0.3s;
+max-width: 180;
+margin: auto;
+}
+.bin-card h3{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.bin-card:hover{
+transform:scale(1.02);
 }
 
 /* BIN DESIGN */
 
-.bin{
-width:80px;
-height:140px;
-border:3px solid #444;
-border-radius:8px;
-margin:auto;
-position:relative;
-overflow:hidden;
-background:#eee;
-cursor:pointer;
+.bin-card {
+  background: white;
+  padding: 10px;         /* smaller padding */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: 0.3s;
+  max-width: 180px;      /* optional width limit */
+  margin: auto;
 }
 
-/* FILL AREA */
-
-.fill{
-position:absolute;
-bottom:0;
-width:100%;
-height:0%;
-background:green;
-transition:0.5s;
+.bin-card h3 {
+  font-size: 14px;       /* smaller title */
+  margin-bottom: 8px;    /* less space */
 }
 
-/* PERCENT TEXT */
-
-.percent{
-position:absolute;
-top:5px;
-width:100%;
-text-align:center;
-font-weight:bold;
+.prediction {
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
-/* PREDICTION TEXT */
-
-.prediction{
-margin-top:10px;
-font-size:14px;
-color:#555;
+button {
+  padding: 5px 10px;     /* smaller button */
+  font-size: 12px;
+  margin-top: 5px;
 }
 
-/* BUTTON */
-
-button{
-margin-top:10px;
-padding:6px 12px;
-border:none;
-background:#1e88e5;
-color:white;
-border-radius:5px;
-cursor:pointer;
+.bin {
+  width:40px; 
+  height:80px; 
+  border:2px solid #444;
+  border-radius:6px;
+  margin:10px auto;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  background:#eee;
 }
 
-button:hover{
-background:#0d47a1;
+.fill {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:0%;
+  background:green;
+  transition:0.4s;
+}
+
+.percent {
+  position:absolute;
+  top:2px;
+  left:0;
+  right:0;
+  text-align:center;
+  font-weight:bold;
+  font-size:10px;
+}
+
+/* BIN GRID */
+.bins-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
 }
 
 /* MAP AREA */
@@ -208,5 +229,174 @@ height:80px;
 
 html{
 scroll-behavior:smooth;
+}
+/* NAVIGATION */
+
+nav{
+background:#0d47a1;
+padding:12px;
+position:relative;
+}
+
+/* HAMBURGER ICON */
+
+.menu-icon{
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+/* MENU LINKS */
+
+.menu-links{
+display:none;
+flex-direction:column;
+background:#0d47a1;
+position:absolute;
+top:50px;
+left:0;
+width:200px;
+padding:10px;
+}
+
+.menu-links a{
+color:white;
+text-decoration:none;
+padding:10px;
+display:block;
+}
+
+.menu-links a:hover{
+background:#1976d2;
+}
+/* HAMBURGER BUTTON */
+
+.menu-button{
+font-size:30px;
+cursor:pointer;
+position:fixed;
+top:20px;
+left:20px;
+color:white;
+z-index:1000;
+}
+
+
+/* SIDE MENU */
+
+.side-menu{
+height:100%;
+width:0;
+position:fixed;
+top:0;
+left:0;
+background-color:#0d47a1;
+overflow-x:hidden;
+transition:0.4s;
+padding-top:60px;
+z-index:999;
+}
+
+
+/* MENU LINKS */
+
+.side-menu a{
+padding:12px 25px;
+text-decoration:none;
+font-size:20px;
+color:white;
+display:block;
+transition:0.3s;
+}
+
+.side-menu a:hover{
+background:#1976d2;
+}
+
+
+/* CLOSE BUTTON */
+
+.close-btn{
+position:absolute;
+top:15px;
+right:20px;
+font-size:25px;
+}
+.map{
+width:700px;
+height:400px;
+background:#e8f4ff;
+border-radius:12px;
+position:relative;
+margin:auto;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* location icons */
+
+.location{
+position:absolute;
+font-size:18px;
+font-weight:bold;
+}
+
+/* placing locations on map */
+
+.market{top:40px;left:80px;}
+.bus{top:120px;left:200px;}
+.station{top:60px;left:400px;}
+.hospital{top:200px;left:100px;}
+
+.park{top:140px;left:500px;}
+.mall{top:260px;left:420px;}
+.residential{top:340px;left:120px;}
+.beach{top:60px;left:600px;}
+.stadium{top:300px;left:600px;}
+
+/* truck */
+
+.truck{
+position:absolute;
+font-size:28px;
+top:350px;
+left:30px;
+transition:2s linear;
+}
+
+/* route drawing */
+
+#routeCanvas{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+#filledBins{
+background:#ffeaea;
+padding:30px;
+text-align:center;
+}
+
+#filledBins h2{
+color:#c62828;
+}
+
+#filledBinsList{
+list-style:none;
+padding:0;
+max-width:500px;
+margin:auto;
+}
+
+#filledBinsList li{
+background:white;
+margin:8px;
+padding:10px;
+border-radius:6px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+font-weight:bold;
 }
 
